@@ -1,5 +1,5 @@
 // 57. Insert Interval
-fun insert(intervals: Array<IntArray>, newInterval: IntArray): Array<IntArray> {
+private fun insert(intervals: Array<IntArray>, newInterval: IntArray): Array<IntArray> {
     var output: Array<IntArray> = emptyArray()
     when {
         intervals.isEmpty() -> {
@@ -37,7 +37,7 @@ fun insert(intervals: Array<IntArray>, newInterval: IntArray): Array<IntArray> {
     return output
 }
 
-fun checkAnyOverlaps(intervals: Array<IntArray>, newInterval: IntArray): Boolean{
+private fun checkAnyOverlaps(intervals: Array<IntArray>, newInterval: IntArray): Boolean{
     var flag = false
     for(interval in intervals){
         flag = isOverlapped(interval,newInterval)
@@ -46,7 +46,7 @@ fun checkAnyOverlaps(intervals: Array<IntArray>, newInterval: IntArray): Boolean
     return flag
 }
 
-fun outputNoOverlaps(intervals: Array<IntArray>, newInterval: IntArray): Array<IntArray> {
+private fun outputNoOverlaps(intervals: Array<IntArray>, newInterval: IntArray): Array<IntArray> {
     var output: Array<IntArray> = emptyArray()
     for (interval in intervals) {
         if (newInterval[1] < interval[0]) {
@@ -62,7 +62,7 @@ fun outputNoOverlaps(intervals: Array<IntArray>, newInterval: IntArray): Array<I
     return output
 }
 
-fun isOverlapped(interval: IntArray, newInterval: IntArray): Boolean {
+private fun isOverlapped(interval: IntArray, newInterval: IntArray): Boolean {
     var isOverlapped = false
     for (newIntervalVal in newInterval.first()..newInterval.last())
         if (newIntervalVal >= interval[0] && newIntervalVal<=interval[1]) {
@@ -70,7 +70,7 @@ fun isOverlapped(interval: IntArray, newInterval: IntArray): Boolean {
         }
     return isOverlapped
 }
-fun outInterval(interval1: IntArray, interval2: IntArray): IntArray {
+private fun outInterval(interval1: IntArray, interval2: IntArray): IntArray {
     val outIntArray: IntArray = intArrayOf(0, 0)
     if (interval1[0] <= interval2[0]) outIntArray[0] = interval1[0]
     else outIntArray[0] = interval2[0]
@@ -79,7 +79,7 @@ fun outInterval(interval1: IntArray, interval2: IntArray): IntArray {
     return outIntArray
 }
 
-fun main() {
+private fun main() {
     val intervals =
         arrayOf(intArrayOf(1, 3), intArrayOf(6,9))
     val newInterval = intArrayOf(2,5)
